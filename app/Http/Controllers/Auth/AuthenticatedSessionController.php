@@ -18,10 +18,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Auth/Login', [
-            'canResetPassword' => Route::has('password.request'),
-            'status' => session('status'),
-        ]);
+        return Inertia::render('Auth/Login');
     }
 
     /**
@@ -29,11 +26,15 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        // dd(Auth::attempt($request->all()));
+        if(!Auth::attempt($request->all())) {
+            return redirect()->back()->withErrors(['attempt' => 'Akun Tidak Terdaftar']);
+        }
 
-        $request->session()->regenerate();
+        $user = Auth::user();
+        Auth::loginUsingId($user->id);
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->to(route('dashboard.home.index'));
     }
 
     /**
