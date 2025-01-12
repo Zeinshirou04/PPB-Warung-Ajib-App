@@ -1,1 +1,0 @@
-import{j as t,M as a}from"./app-DqKRPcXv.js";import{A as r}from"./AuthenticatedLayout-LJsFBreJ.js";function i({username:e}){return t.jsx(r,{children:t.jsx(a,{title:"Dashboard"})})}export{i as default};

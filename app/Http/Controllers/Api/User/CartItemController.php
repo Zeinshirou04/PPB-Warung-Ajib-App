@@ -13,7 +13,10 @@ class CartItemController extends Controller
      */
     public function store(Request $request)
     {
-        $items = CartItem::create($request->all());
+        $items = CartItem::create([
+            'mid' => $request->mid,
+            'uid' => (int) $request->uid
+        ]);
         try {
             $result = [
                 'message' => 'Item telah ditambahkan'

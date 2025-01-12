@@ -25,7 +25,7 @@ function MenuView() {
         fetchData();
     }, []);
 
-    const MenuItems = items.map((item, index) => {
+    const MenuItems = items != [] && items.map((item, index) => {
         return (
             <tr className="text-center">
                 <td>{++index}</td>
