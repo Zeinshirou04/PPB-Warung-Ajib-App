@@ -48,7 +48,7 @@ class CartItemController extends Controller
             $result = [
                 'message' => 'Item tidak ditemukan',
             ];
-            return response()->json($result, 200);
+            return response()->json($result, 404);
         } catch (\Throwable $th) {
             $result = [
                 'message' => $th->getMessage(),
