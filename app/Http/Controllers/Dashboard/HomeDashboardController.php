@@ -25,6 +25,10 @@ class HomeDashboardController extends Controller
     }
 
     public function showCart() {
-        return Inertia::render('Cart/CartView');
+        $uid = Auth::user()['id'];
+        // dd($uid);
+        return Inertia::render('Cart/CartView', [
+            'uid' => $uid
+        ]);
     }
 }

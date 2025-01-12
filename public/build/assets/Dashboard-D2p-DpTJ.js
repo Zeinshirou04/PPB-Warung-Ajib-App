@@ -1,1 +1,0 @@
-import{j as t,M as a}from"./app-B1-mQSSP.js";import{A as r}from"./AuthenticatedLayout-BQ-snTxE.js";function i({username:e}){return t.jsx(r,{children:t.jsx(a,{title:"Dashboard"})})}export{i as default};

@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import { useForm } from "@inertiajs/react";
 import axios from "axios";
 
-function CartView() {
+function CartView({ uid }) {
 
     const [carts, setCarts] = useState([]);
 
     const fetchCart = async () => {
         try {
             const response = await axios.get(route('cart.items.show', {
-                id: 1
+                id: uid
             }));
             const result = response.data['items'];
             setCarts(result);
