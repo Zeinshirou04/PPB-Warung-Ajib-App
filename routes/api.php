@@ -25,7 +25,7 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::prefix('menu')->group(function () {
-    Route::get('items', [MenuController::class, 'show'])->name('dashboard.items.all');
+    Route::get('items', [MenuController::class, 'show'])->name('dashboard.menu.all');
     Route::resource('items', MenuController::class)->except(['index', 'create', 'store', 'show']);
 });
 
