@@ -20,7 +20,9 @@ function MenuView() {
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios.get(route('dashboard.menu.all'));
-            setItems(response.data.items);
+            if(response.status == 200) {
+                setItems(response.data.items);
+            }
         }
         fetchData();
     }, []);
