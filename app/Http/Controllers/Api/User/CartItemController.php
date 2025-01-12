@@ -38,7 +38,7 @@ class CartItemController extends Controller
     {
         $items = CartItem::with('menus')->with('users')->where('uid', (int) $id);
         try {
-            if($items->count() > 1) {
+            if($items->count() >= 1) {
                 $result = [
                     'message' => 'Item ditemukan',
                     'items' => $items->get()
