@@ -16,6 +16,11 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('dashboard')->group(function () {
     Route::get('home', [HomeDashboardController::class, 'index'])->name('dashboard.home.index');
+
+    Route::get('user', [HomeDashboardController::class, 'showUser'])->name('dashboard.home.user');
+
     Route::get('menu', [HomeDashboardController::class, 'showMenu'])->name('dashboard.home.menu');
     Route::post('menu', [MenuController::class, 'store'])->name('dashboard.menu.store');
+
+    Route::get('cart', [HomeDashboardController::class, 'showCart'])->name('dashboard.home.cart');
 })->middleware('auth');

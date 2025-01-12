@@ -19,4 +19,12 @@ class HomeDashboardController extends Controller
     public function showMenu() {
         return Inertia::render('Menu/MenuView');
     }
+
+    public function showUser() {
+        return Inertia::render('User/UserView');
+    }
+
+    public function showCart() {
+        return Inertia::render('Cart/CartView');
+    }
 }

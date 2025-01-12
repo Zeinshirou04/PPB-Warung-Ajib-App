@@ -33,6 +33,7 @@ class RegisterUserController extends Controller
                 $result = [
                     'message' => 'Daftar Berhasil',
                 ];
+                if(!$request->wantsJson()) return redirect()->back();
                 return response()->json($result);
             }
         } catch (\Throwable $th) {

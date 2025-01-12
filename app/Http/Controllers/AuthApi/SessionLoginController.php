@@ -25,7 +25,7 @@ class SessionLoginController extends Controller
             if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
                 $token = $user->createToken('auth_token')->plainTextToken;
                 $result = [
-                    'message' => 'Daftar Berhasil',
+                    'message' => 'Masuk Berhasil',
                     'access_token' => $token
                 ];
                 return response()->json($result);
