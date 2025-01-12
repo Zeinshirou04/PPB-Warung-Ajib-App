@@ -30,7 +30,7 @@ Route::prefix('menu')->group(function () {
 });
 
 Route::prefix('cart')->group(function () {
-    Route::get('items/{id}', [CartItemController::class, 'show'])
+    Route::get('items/:{id}', [CartItemController::class, 'show'])
         ->name('cart.items.show');
     Route::post('items', [CartItemController::class, 'store'])
         ->name('cart.items.store')
