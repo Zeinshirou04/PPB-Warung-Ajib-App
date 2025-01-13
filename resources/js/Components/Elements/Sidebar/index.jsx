@@ -15,6 +15,9 @@ const Sidebar = () => {
                     <a className="w-full" href={route('dashboard.home.cart')}>
                         <p className="text-white text-xl hover:text-gray-200/90 active:text-gray-200/90 focus:text-gray-200">List Pembelian</p>
                     </a>
+                    <a className="w-full" href={route('dashboard.home.payment')}>
+                        <p className="text-white text-xl hover:text-gray-200/90 active:text-gray-200/90 focus:text-gray-200">List Pembayaran</p>
+                    </a>
                 </div>
             </div>
         </aside>

@@ -23,4 +23,6 @@ Route::prefix('dashboard')->group(function () {
     Route::post('menu', [MenuController::class, 'store'])->name('dashboard.menu.store');
 
     Route::get('cart', [HomeDashboardController::class, 'showCart'])->name('dashboard.home.cart');
+
+    Route::get('payment', [HomeDashboardController::class, 'showPayment'])->name('dashboard.home.payment');
 })->middleware('auth');

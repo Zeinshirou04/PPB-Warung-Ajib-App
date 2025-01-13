@@ -14,7 +14,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::prefix('payment')->group(function () {
-    Route::resource('image', ControlPaymentImageController::class)->except(['index', 'create', 'edit']);
+    Route::resource('image', ControlPaymentImageController::class)->except(['index', 'create', 'edit', 'show']);
+    Route::get('image', [ControlPaymentImageController::class, 'show'])->name('images.show');
 });
 
 Route::prefix('auth')->group(function () {

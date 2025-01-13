@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Payment;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\CartItem;
 use App\Models\PaymentItem;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,11 +29,12 @@ class ControlPaymentImageController extends Controller
 
         $menu = [
             'uid' => (int) $request->uid,
-            'gambar' => 'storage/menu/' . $request->file('image')->getClientOriginalName(),
+            'gambar' => 'storage/pembayaran/' . $request->file('image')->getClientOriginalName(),
         ];
 
         try {
             PaymentItem::create($menu);
+            CartItem::where('uid', $request->uid)->delete();
             $result = [
                 'message' => 'Gambar berhasil disimpan'
             ];
@@ -55,9 +57,23 @@ class ControlPaymentImageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        return $id;
+        try {
+            $items = PaymentItem::with('users')->get();
+            $result = [
+                'message' => 'Pembayaran ditemukan',
+                'items' => $items
+            ];
+            return response()->json($result, 200);
+        } catch (\Throwable $th) {
+            $result = [
+                'message' => 'Gambar gagal dibuat',
+                'error_message' => $th->getMessage(),
+                'error_code' => $th->getCode()
+            ];
+            return response()->json($result, 500);
+        }
     }
 
     /**
