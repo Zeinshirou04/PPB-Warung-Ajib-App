@@ -1,1 +1,0 @@
-import{j as t,M as a}from"./app-DKMybuaq.js";import{A as r}from"./AuthenticatedLayout-B7Hmw0gA.js";function i({username:e}){return t.jsx(r,{children:t.jsx(a,{title:"Dashboard"})})}export{i as default};
